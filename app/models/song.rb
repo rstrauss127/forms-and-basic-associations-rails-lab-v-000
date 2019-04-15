@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
   belongs_to :genre
 
   def genre_name=(name)
-    self.genre = Genre.find(name: name)
+    self.genre = Genre.find_by(name: name)
   end
 
   def genre_name

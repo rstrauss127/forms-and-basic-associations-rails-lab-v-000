@@ -24,11 +24,11 @@ class Song < ActiveRecord::Base
   def note_contents=(notes)
     notes.each do |content|
       if content.strip != ""
-        n = Notes.build(content: content)
-        self.notes << n
+        self.notes.build(content: content)
       end
     end
   end
+
 
   def note_contents
     self.notes.map(&:content)

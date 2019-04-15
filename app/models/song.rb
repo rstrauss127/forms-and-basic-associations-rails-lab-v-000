@@ -2,7 +2,11 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
 
-  def genre_name=(genre)
-    self.genre_name = Genre.find_or_create_by(genre_name: genre)
+  def genre_name=(name)
+    self.genre = Genre.find_or_create_by(name: name)
+  end
+
+  def genre_name
+    self.genre ? self.genre.name:nil
   end
 end

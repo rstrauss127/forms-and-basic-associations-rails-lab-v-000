@@ -21,8 +21,8 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-    notes.each do |content|
-      self.notes.build(content: content).save if content.length > 0
+    notes.each do |n|
+      self.notes.build(content: n).save if n.length > 0
     end
   end
 
